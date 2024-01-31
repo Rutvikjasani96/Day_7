@@ -1,7 +1,7 @@
 public class SubarraySum {
 //    Print all sub array sum(Home work)
     public static void main(String[] args) {
-        int[] array ={0,1,2,3,4};
+        int[] array ={-1,3,2,3};
         int ps[] = new int[array.length];
         prefixSum(array,ps);
         subarraySum(array,ps);
@@ -9,14 +9,17 @@ public class SubarraySum {
     static void subarraySum(int[] array,int[] ps){
         int sum=0;
         for(int i = 0;i< array.length;i++){
-//            for(int j=i;j< array.length;j++){
-//                sum=sum+array[j]; // using carry forward
-                if(i!=0) {
-                    sum = sum + ps[ps.length - 1] - ps[i - 1];
-                }else{
-                    sum = sum + ps[ps.length-1] - ps[i];
-                }
-//            }
+            sum=0; //if we use carry forward its use
+            for(int j=i;j< array.length;j++){
+                sum=sum+array[j]; // using carry forward
+//                if(i!=0) {
+//                    sum = sum + ps[j] - ps[i - 1];
+//                }else{
+//                    sum = sum + ps[j];
+//                }
+//                System.out.println("i : "+i+" | "+"j : "+j+ " = "+sum);
+                System.out.println(sum);
+            }
         }
         System.out.println(" "+sum);
     }
